@@ -1,9 +1,5 @@
-import {
-  createSlice,
-  AsyncThunk,
-  AnyAction,
-  PayloadAction,
-} from '@reduxjs/toolkit';
+import { createSlice, AsyncThunk, AnyAction } from '@reduxjs/toolkit';
+
 import {
   getStreamers,
   getStreamer,
@@ -19,11 +15,7 @@ const initialState: StreamersState = {
   isLoading: false,
 };
 
-// const extraActions = [getStreamers, getStreamer, addStreamer, voteStreamer];
-// type actionType = 'fulfilled' | 'pending' | 'rejected';
-// const getActionsByType = (type: actionType) =>
-//   extraActions.map((action) => action[type]);
-
+// Types and functions for reapeating reducers by action resolve
 type GenericAsyncThunk = AsyncThunk<unknown, unknown, any>;
 type PendingAction = ReturnType<GenericAsyncThunk['pending']>;
 type RejectedAction = ReturnType<GenericAsyncThunk['rejected']>;
@@ -46,46 +38,26 @@ const StreamersSlice = createSlice({
         state.error = null;
         state.isLoading = false;
       })
-
-      .addCase(getStreamers.rejected, (state, action) => {
-        state.error =
-          action.payload !== undefined ? action.payload : 'unknown error';
-        state.isLoading = false;
-      })
       .addCase(getStreamer.fulfilled, (state, action) => {
         state.selectedItem = action.payload;
         state.error = null;
         state.isLoading = false;
-      })
-
-      .addCase(getStreamer.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error =
-          action.payload !== undefined ? action.payload : 'unknown error';
       })
       .addCase(addStreamer.fulfilled, (state, action) => {
         state.items = [...state.items, action.payload];
         state.error = null;
         state.isLoading = false;
       })
-
-      .addCase(addStreamer.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error =
-          action.payload !== undefined ? action.payload : 'unknown error';
-      })
       .addCase(voteStreamer.fulfilled, (state, action) => {
-        state.items = [...state.items, action.payload];
+        const idx = state.items.findIndex(
+          (item) => item._id === action.payload._id
+        );
+        state.items[idx] = action.payload;
         if (action.payload._id === state.selectedItem?._id) {
           state.selectedItem = action.payload;
         }
         state.error = null;
         state.isLoading = false;
-      })
-      .addCase(voteStreamer.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error =
-          action.payload !== undefined ? action.payload : 'unknown error';
       })
       .addMatcher(isPendingAction, (state) => {
         state.isLoading = true;

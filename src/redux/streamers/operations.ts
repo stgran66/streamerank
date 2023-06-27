@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { NewStreamerData, Streamer, Vote, VoteData } from './interfaces';
+import { NewStreamerData, VoteData } from './interfaces';
+import { Streamer } from 'types';
 
+// Setting base url for http requests
 axios.defaults.baseURL = 'https://streamerank-api.onrender.com';
 
+// Operation for getting streamers list
 export const getStreamers = createAsyncThunk<
   Streamer[],
   void,
@@ -22,6 +25,7 @@ export const getStreamers = createAsyncThunk<
   }
 });
 
+// Operation for getting streamer by id
 export const getStreamer = createAsyncThunk<
   Streamer,
   string,
@@ -39,6 +43,7 @@ export const getStreamer = createAsyncThunk<
   }
 });
 
+// Operation for adding streamer
 export const addStreamer = createAsyncThunk<
   Streamer,
   NewStreamerData,
@@ -56,13 +61,14 @@ export const addStreamer = createAsyncThunk<
   }
 });
 
+// Operation for voting for streamer
 export const voteStreamer = createAsyncThunk<
   Streamer,
   VoteData,
   { rejectValue: null | string }
 >('streamers/voteStreamer', async ({ vote, id }, thunkAPI) => {
   try {
-    const { data } = await axios.put(`/streamers/${id}/vote`, vote);
+    const { data } = await axios.put(`/streamers/${id}/vote`, { vote });
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
