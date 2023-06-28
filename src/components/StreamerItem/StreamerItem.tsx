@@ -1,25 +1,11 @@
 import { Streamer } from 'types';
-import {
-  FaThumbsUp,
-  FaThumbsDown,
-  FaKickstarter,
-  FaTwitch,
-  FaYoutube,
-  FaTiktok,
-} from 'react-icons/fa';
-import { GiPoolTriangle } from 'react-icons/gi';
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 import { StyledStreamerItem } from './StreamerItem.styled';
 import { Badge } from '@mui/material';
 import { useAppDispatch } from 'hooks/redux-hooks';
 import { voteStreamer } from 'redux/streamers/operations';
-
-const platforms = {
-  kick: <FaKickstarter size={24} color='#6b9c3b' />,
-  twitch: <FaTwitch size={24} color='#9146ff' />,
-  youtube: <FaYoutube size={24} color='#FF0000' />,
-  tiktok: <FaTiktok size={24} />,
-  rumble: <GiPoolTriangle size={24} color='#85c742' />,
-};
+import { StyledLink } from './StreamerItem.styled';
+import { platformIcons } from 'utils/platforms';
 
 interface StreamerItemProps {
   key: string;
@@ -30,11 +16,14 @@ export const StreamerItem = ({ streamer }: StreamerItemProps) => {
   const dispatch = useAppDispatch();
   return (
     <StyledStreamerItem>
-      <div>
+      <StyledLink to={`/streamer/${_id}`}>
         <img src={avatar} alt='avatart' />
         <p>{name}</p>
-        <p>{platforms[platform]}</p>
-      </div>
+        <p>
+          {platformIcons[platform]}
+          {platform}
+        </p>
+      </StyledLink>
       <div>
         <Badge badgeContent={upvote} color='secondary' showZero>
           <FaThumbsUp

@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { getStreamers } from 'redux/streamers/operations';
 import { selectStreamers } from 'redux/streamers/selectors';
-import { StreamerItem } from './StreamerItem';
+import { StreamerItem } from '../StreamerItem/StreamerItem';
+import { StyledList } from './StreamerList.styled';
 
 export const StreamersList = () => {
   const dispatch = useAppDispatch();
@@ -13,11 +14,11 @@ export const StreamersList = () => {
     dispatch(getStreamers());
   }, [dispatch]);
   return (
-    <ul>
+    <StyledList>
       {streamers.length > 0 &&
         streamers.map((streamer) => {
           return <StreamerItem streamer={streamer} key={streamer._id} />;
         })}
-    </ul>
+    </StyledList>
   );
 };
