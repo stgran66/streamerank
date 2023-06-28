@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.17b92b7c.css",
-    "main.js": "/static/js/main.5770a5c5.js",
-    "index.html": "/index.html",
-    "main.17b92b7c.css.map": "/static/css/main.17b92b7c.css.map",
-    "main.5770a5c5.js.map": "/static/js/main.5770a5c5.js.map"
+    "main.css": "/streamerank/static/css/main.17b92b7c.css",
+    "main.js": "/streamerank/static/js/main.5770a5c5.js",
+    "index.html": "/streamerank/index.html",
+    "main.17b92b7c.css.map": "/streamerank/static/css/main.17b92b7c.css.map",
+    "main.5770a5c5.js.map": "/streamerank/static/js/main.5770a5c5.js.map"
   },
   "entrypoints": [
     "static/css/main.17b92b7c.css",
