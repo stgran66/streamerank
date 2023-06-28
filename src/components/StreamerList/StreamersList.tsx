@@ -2,23 +2,35 @@ import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { getStreamers } from 'redux/streamers/operations';
-import { selectStreamers } from 'redux/streamers/selectors';
+import {
+  selectError,
+  selectIsLoading,
+  selectStreamers,
+} from 'redux/streamers/selectors';
 import { StreamerItem } from '../StreamerItem/StreamerItem';
 import { StyledList } from './StreamerList.styled';
+import { CircularProgress } from '@mui/material';
 
 export const StreamersList = () => {
   const dispatch = useAppDispatch();
   const streamers = useAppSelector(selectStreamers);
+  const isLoading = useAppSelector(selectIsLoading);
+  const error = useAppSelector(selectError);
 
   useEffect(() => {
     dispatch(getStreamers());
   }, [dispatch]);
   return (
-    <StyledList>
-      {streamers.length > 0 &&
-        streamers.map((streamer) => {
-          return <StreamerItem streamer={streamer} key={streamer._id} />;
-        })}
-    </StyledList>
+    <>
+      {streamers.length > 0 && (
+        <StyledList>
+          {streamers.map((streamer) => {
+            return <StreamerItem streamer={streamer} key={streamer._id} />;
+          })}
+        </StyledList>
+      )}
+      {isLoading && <CircularProgress />}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </>
   );
 };

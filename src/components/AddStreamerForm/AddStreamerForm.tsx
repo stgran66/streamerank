@@ -24,10 +24,12 @@ export const AddStreamerForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     disaptch(addStreamer(data));
+    reset();
   };
 
   return (

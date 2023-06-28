@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { CommonLayout } from './CommonLayout/CommonLayout';
-import { HomePage } from './HomePage';
-import { StreamerPage } from './StreamerPage';
+import { HomePage } from './pages/HomePage';
+import { StreamerPage } from './pages/StreamerPage';
 
 function App() {
   return (

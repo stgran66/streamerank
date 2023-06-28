@@ -65,6 +65,7 @@ const StreamersSlice = createSlice({
       })
       .addMatcher(isRejectedAction, (state, action) => {
         state.isLoading = false;
+        // @ts-ignore
         state.error =
           action.payload !== undefined ? action.payload : 'unknown error';
       });

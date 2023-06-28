@@ -3,7 +3,7 @@ import { Platform, Streamer } from 'types';
 export interface StreamersState {
   items: [] | Streamer[];
   selectedItem: null | Streamer;
-  error: null | string | {};
+  error: null | string;
   isLoading: boolean;
 }
 
