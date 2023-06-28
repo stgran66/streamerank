@@ -1,8 +1,4 @@
-import { useAppDispatch } from 'hooks/redux-hooks';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Platform } from 'types';
-import { platforms } from 'utils/platforms';
-import { addStreamer } from 'redux/streamers/operations';
 import {
   OutlinedInput,
   Button,
@@ -11,6 +7,11 @@ import {
   InputLabel,
   TextField,
 } from '@mui/material';
+
+import { useAppDispatch } from 'hooks/redux-hooks';
+import { Platform } from 'types';
+import { platforms } from 'utils/platforms';
+import { addStreamer } from 'redux/streamers/operations';
 import { StyledForm } from './AddStreamerFrom.styled';
 
 type Inputs = {
@@ -21,6 +22,7 @@ type Inputs = {
 
 export const AddStreamerForm = () => {
   const disaptch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
@@ -40,6 +42,7 @@ export const AddStreamerForm = () => {
           <OutlinedInput {...register('name', { required: true })} />
           {errors.name && <span>This field is required</span>}
         </div>
+
         <div>
           <InputLabel>Platform</InputLabel>
           <Select

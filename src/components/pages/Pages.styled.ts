@@ -19,24 +19,29 @@ export const StyledContainer = styled('div')({
     img: {
       borderRadius: '50%',
     },
+
     p: {
       fontSize: 18,
       lineHeight: 1.5,
     },
 
     'p.streamer-platform': {
-      fontSize: 20,
       display: 'flex',
       alignItems: 'center',
       gap: 10,
+
+      fontSize: 20,
     },
+
     '.MuiBadge-badge': {
       right: '50%',
       top: '150%',
     },
+
     '>div': {
       display: 'flex',
       flexDirection: 'column',
+
       '.voting-buttons-container': {
         alignSelf: 'flex-end',
       },

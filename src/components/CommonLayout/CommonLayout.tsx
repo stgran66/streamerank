@@ -1,7 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { Paper } from '@mui/material';
-import { StyledHeader, StyledHomeLink } from './CommonLayout.styled';
 import { FaHome } from 'react-icons/fa';
+
+import { StyledHeader, StyledHomeLink } from './CommonLayout.styled';
+
 export const CommonLayout = () => {
   return (
     <Paper>

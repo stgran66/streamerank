@@ -1,7 +1,8 @@
-import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
-import { StyledContainer } from './Pages.styled';
-import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
+
+import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { getStreamer } from 'redux/streamers/operations';
 import {
   selectError,
@@ -10,11 +11,12 @@ import {
 } from 'redux/streamers/selectors';
 import { platformIcons } from 'utils/platforms';
 import { VotingButtons } from 'components/VotingButtons/VotingButtons';
-import { CircularProgress } from '@mui/material';
+import { StyledContainer } from './Pages.styled';
 
 export const StreamerPage = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
+
   const streamer = useAppSelector(selectStreamer);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
@@ -24,6 +26,7 @@ export const StreamerPage = () => {
       dispatch(getStreamer(params.id));
     }
   }, [dispatch, params]);
+
   return (
     <StyledContainer>
       {streamer && (

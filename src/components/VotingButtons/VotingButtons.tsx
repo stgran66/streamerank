@@ -1,6 +1,7 @@
 import { Badge } from '@mui/material';
-import { useAppDispatch } from 'hooks/redux-hooks';
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+
+import { useAppDispatch } from 'hooks/redux-hooks';
 import { voteStreamer } from 'redux/streamers/operations';
 import { StyledContainer } from './VotingButtons.styled';
 
@@ -17,6 +18,7 @@ export const VotingButtons = ({
   size,
 }: VotingButtonsProps) => {
   const dispatch = useAppDispatch();
+
   return (
     <StyledContainer>
       <Badge badgeContent={upvote} color='secondary' showZero>

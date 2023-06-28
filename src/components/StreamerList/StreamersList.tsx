@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { CircularProgress } from '@mui/material';
 
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { getStreamers } from 'redux/streamers/operations';
@@ -9,10 +10,10 @@ import {
 } from 'redux/streamers/selectors';
 import { StreamerItem } from '../StreamerItem/StreamerItem';
 import { StyledList } from './StreamerList.styled';
-import { CircularProgress } from '@mui/material';
 
 export const StreamersList = () => {
   const dispatch = useAppDispatch();
+
   const streamers = useAppSelector(selectStreamers);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
@@ -20,6 +21,7 @@ export const StreamersList = () => {
   useEffect(() => {
     dispatch(getStreamers());
   }, [dispatch]);
+
   return (
     <>
       {streamers.length > 0 && (

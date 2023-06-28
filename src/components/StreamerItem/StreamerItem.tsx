@@ -1,13 +1,13 @@
 import { Streamer } from 'types';
-import { StyledStreamerItem } from './StreamerItem.styled';
-import { StyledLink } from './StreamerItem.styled';
 import { platformIcons } from 'utils/platforms';
 import { VotingButtons } from 'components/VotingButtons/VotingButtons';
+import { StyledLink, StyledStreamerItem } from './StreamerItem.styled';
 
 interface StreamerItemProps {
   key: string;
   streamer: Streamer;
 }
+
 export const StreamerItem = ({ streamer }: StreamerItemProps) => {
   const { name, avatar, _id, platform, upvote, downvote } = streamer;
   return (

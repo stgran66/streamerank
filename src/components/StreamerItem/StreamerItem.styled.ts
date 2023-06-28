@@ -5,6 +5,7 @@ export const StyledStreamerItem = styled('li')({
   display: 'flex',
   justifyContent: 'space-between',
   padding: '20px 50px',
+
   backgroundColor: 'rgba(57, 46, 92, 0.7)',
   color: 'white',
 
@@ -20,10 +21,11 @@ export const StyledStreamerItem = styled('li')({
 });
 
 export const StyledLink = styled(NavLink)({
-  textDecoration: 'none',
-  color: 'white',
   display: 'flex',
   gap: 20,
+
+  textDecoration: 'none',
+  color: 'white',
 
   p: {
     display: 'flex',
