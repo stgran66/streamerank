@@ -1,7 +1,7 @@
 # Streamerank v.0.1.0
 ## [Live verison](https://stgran66.github.io/streamerank/)
 This project was created to make a list of streamers from different platforms and rank them with upvotes or downvotes.
-For now, there is an option to add new streamers and vote for any of them. The project is in progress... <img src="https://media.giphy.com/media/XzqEFZ06NSFgXaut2g/giphy.gif" alt="in progress"/>
+For now, there is an option to add new streamers and vote for any of them.
 ## Project setup
 
 ### Install dependencies `npm install`
