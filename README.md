@@ -1,25 +1,19 @@
-# Getting Started with Create React App
+# Streamerank v.0.1.0
+## [Live verison](https://stgran66.github.io/streamerank/)
+This project was created to make a list of streamers from different platforms and rank them with upvotes or downvotes.
+For now, there is an option to add new streamers and vote for any of them. The project is in progress... <img src="https://media.giphy.com/media/XzqEFZ06NSFgXaut2g/giphy.gif" alt="in progress"/>
+## Project setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Install dependencies `npm install`
 
-## Available Scripts
+### Run app in dev mode `npm start`
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
+### Build the app `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,20 +21,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Resources
 
-### `npm run eject`
+Node version: v18.12.1  
+NPM version: 8.19.2
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Libraries:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React Hook Form](https://react-hook-form.com/)
+- [Axios](https://axios-http.com/)
+- [React router](https://reactrouter.com/en/main)
+- [Redux Toolkit](https://redux-toolkit.js.org)
+- [Material UI](https://mui.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
